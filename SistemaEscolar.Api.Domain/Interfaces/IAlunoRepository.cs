@@ -14,7 +14,6 @@ namespace SistemaEscolar.Api.Domain.Interfaces
         Task<ResultadoOperacao<List<Aluno.DadosAluno>>> ListaAlunos();
         Task<ResultadoOperacao<Aluno.EditaAluno>> EditaAluno(Aluno.EditaAluno parametros);
         Task<ResultadoOperacao<Aluno.DadosAluno>> ExcluiAluno(int Id);
-        Task<bool> ValidaLogin(string email, string senha, int nivel);
         Task<byte[]> RelatorioPDF(string id);
         Task<string> GenerateToken(string id);
     }

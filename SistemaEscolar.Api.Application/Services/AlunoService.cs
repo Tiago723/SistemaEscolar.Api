@@ -40,10 +40,6 @@ namespace SistemaEscolar.Api.Application.Services
         {
             return _alunoRepository.ExcluiAluno(Id);
         }
-        public Task<bool> ValidaLogin(string email, string senha, int nivel)
-        {
-            return _alunoRepository.ValidaLogin(email, senha, nivel);
-        }
         public Task<byte[]> RelatorioPDF(string id)
         {
             return _alunoRepository.RelatorioPDF(id);

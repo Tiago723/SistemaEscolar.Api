@@ -417,52 +417,6 @@ namespace SistemaEscolar.Api.Infra.Repositories
             }
         }
 
-        public async Task<bool> ValidaLogin(string usuario, string senha, int nivel)
-        {
-            using (SqlConnection conexao = new SqlConnection(conn.ConnectionString))
-            {
-                try
-                {
-                    conexao.Open();
-                    if (conexao.State == ConnectionState.Open)
-                    {
-                        var query = "SELECT senha FROM alunos WHERE email = @usuario AND nivel = '"+nivel+"'";
-
-                        using (var comando = new SqlCommand(query, conexao))
-                        {
-                            comando.Parameters.AddWithValue("@usuario", usuario);
-
-                            using (var leitor = comando.ExecuteReader())
-                            {
-                                if (leitor.Read())
-                                {
-                                    string senhaArmazenada = leitor["senha"] as string;
-
-                                    if (!string.IsNullOrEmpty(senhaArmazenada))
-                                    {
-                                        if (BCrypt.Net.BCrypt.Verify(senha, senhaArmazenada))
-                                        {
-                                            return true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    return false;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    conexao?.Close();
-                }
-            }
-        }
-
         public string HashPassword(string password)
         {
             string salt = BCrypt.Net.BCrypt.GenerateSalt();

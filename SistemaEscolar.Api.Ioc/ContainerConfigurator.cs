@@ -16,9 +16,11 @@ namespace SistemaEscolar.Api.Ioc
 
             //Injeção de dependência dos repositórios
             serviceCollection.AddSingleton<IAlunoRepository, AlunoRepository>();
+            serviceCollection.AddSingleton<IAutenticacaoRepository, AutenticacaoRepository>();
 
             //Injeção de dependência dos serviços
             serviceCollection.AddSingleton<IAlunoService, AlunoService>();
+            serviceCollection.AddSingleton<IAutenticacaoService, AutenticacaoService>();
 
             serviceCollection.AddHealthCheckUri(configuration);
         }
