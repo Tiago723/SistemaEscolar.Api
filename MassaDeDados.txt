@@ -1,0 +1,41 @@
+{
+  "nome_aluno": "Tiago Eugenio de Freitas",
+  "cpf": "341.274.748-31",
+  "tel": "13 99119-2790",
+  "genero": "Masculino",
+  "estado_civil": "Solteiro",
+  "nasc": "01-11-1985",
+  "cidade_nasc": "Santos",
+  "estado_nasc": "SP",
+  "endereco": "Rua Manoel Covas Raia",
+  "bairro": "Vila São Jorge",
+  "cidade": "São Vicente",
+  "estado": "SP",
+  "numero": "193",
+  "complemento": "casa",
+  "cep": "11.380-070",
+  "email": "tiago-vsj@hotmail.com",
+  "senha": "tiago@123"
+}
+
+
+{
+  "nome_aluno": "Raphaela Eugenia de Freitas Rosa",
+  "cpf": "444.444.444-44",
+  "tel": "1146544-4499",
+  "genero": "Feminino",
+  "estado_civil": "Solteira",
+  "nasc": "06/09/2001",
+  "cidade_nasc": "Ribeirão Pires",
+  "estado_nasc": "SP",
+  "endereco": "Rua K ",
+  "bairro": "Jd Ana Rosa",
+  "cidade": "Suzano",
+  "estado": "SP",
+  "numero": "119",
+  "complemento": "casa",
+  "cep": "086500041",
+  "email": "rapha@gmail2023.com",
+  "senha": "rapha@123",
+  "cd_aluno": 2
+}

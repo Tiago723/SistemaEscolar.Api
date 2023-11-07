@@ -1,0 +1,15 @@
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\bin\x64\Debug\net6.0\SistemaEscolar.Api.Infra.deps.json
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\bin\x64\Debug\net6.0\SistemaEscolar.Api.Infra.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\bin\x64\Debug\net6.0\SistemaEscolar.Api.Infra.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\bin\x64\Debug\net6.0\SistemaEscolar.Api.Domain.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\bin\x64\Debug\net6.0\SistemaEscolar.Api.Domain.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.csproj.AssemblyReference.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.AssemblyInfoInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.AssemblyInfo.cs
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.csproj.CoreCompileInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.csproj.CopyComplete
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\refint\SistemaEscolar.Api.Infra.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\SistemaEscolar.Api.Infra.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Infra\obj\x64\Debug\net6.0\ref\SistemaEscolar.Api.Infra.dll
