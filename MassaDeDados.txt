@@ -15,7 +15,8 @@
   "complemento": "casa",
   "cep": "11.380-070",
   "email": "tiago-vsj@hotmail.com",
-  "senha": "tiago@123"
+  "senha": "tiago@123",
+  "nivel": "2"
 }
 
 
@@ -37,5 +38,5 @@
   "cep": "086500041",
   "email": "rapha@gmail2023.com",
   "senha": "rapha@123",
-  "cd_aluno": 2
+  "nivel": "2"
 }

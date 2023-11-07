@@ -27,6 +27,7 @@ namespace SistemaEscolar.Api.Domain.Entidades
             public string? complemento { get; set; }
             public string Cep { get; set; }
             public string? Email { get; set; }
+            public int? nivel { get; set; }
         }
 
         public class CadastraAluno
@@ -48,6 +49,7 @@ namespace SistemaEscolar.Api.Domain.Entidades
             public string Cep { get; set; }
             public string Email { get; set; }
             public string senha { get; set; }
+            public int nivel { get; set; }
         }
 
         public class EditaAluno
@@ -69,6 +71,7 @@ namespace SistemaEscolar.Api.Domain.Entidades
             public string Cep { get; set; }
             public string? Email { get; set; }
             public string senha { get; set; }
+            public int? nivel { get; set; }
         }
 
         public class ResponsavelDoAluno

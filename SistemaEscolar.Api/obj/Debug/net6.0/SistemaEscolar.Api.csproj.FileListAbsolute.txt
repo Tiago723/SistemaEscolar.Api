@@ -223,8 +223,8 @@ C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api\obj\
 C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api\obj\Debug\net6.0\SistemaEscolar.Api.pdb
 C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api\obj\Debug\net6.0\SistemaEscolar.Api.genruntimeconfig.cache
 C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api\obj\Debug\net6.0\ref\SistemaEscolar.Api.dll
-F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\appsettings.Development.json
 F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\web.config
+F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\appsettings.Development.json
 F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\appsettings.json
 F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\SistemaEscolar.Api.exe
 F:\MeusProjetos\Repositorios\WebServices\SistemaEscolar.Api\SistemaEscolar.Api\bin\Debug\net6.0\SistemaEscolar.Api.deps.json

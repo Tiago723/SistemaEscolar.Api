@@ -57,7 +57,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
                             {
                                 var SenhaCriptografada = HashPassword(parametros.senha);
 
-                                var query = "INSERT INTO alunos (nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, senha) VALUES (@nome_aluno, @cpf, @tel, @genero, @estado_civil, @nasc, @cidade_nasc, @estado_nasc, @endereco, @bairro, @cidade, @estado, @numero, @complemento, @cep, @email, @senha)";
+                                var query = "INSERT INTO alunos (nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, senha, nivel) VALUES (@nome_aluno, @cpf, @tel, @genero, @estado_civil, @nasc, @cidade_nasc, @estado_nasc, @endereco, @bairro, @cidade, @estado, @numero, @complemento, @cep, @email, @senha, @nivel)";
 
                                 using (SqlCommand comando = new SqlCommand(query, conexao))
                                 {
@@ -78,6 +78,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
                                     comando.Parameters.AddWithValue("@cep", parametros.Cep);
                                     comando.Parameters.AddWithValue("@email", parametros.Email);
                                     comando.Parameters.AddWithValue("@senha", SenhaCriptografada);
+                                    comando.Parameters.AddWithValue("@nivel", parametros.nivel);
 
                                     comando.ExecuteNonQuery();
                                     comando.Dispose();
@@ -129,7 +130,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
             {
                 try
                 {
-                    var query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email FROM alunos WHERE cd_aluno = '" + Id + "'";
+                    var query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, nivel FROM alunos WHERE cd_aluno = '" + Id + "' AND nivel = 2";
                     conexao.Open();
 
                     if (conexao.State == ConnectionState.Open)
@@ -164,6 +165,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
                             Aluno.complemento = dr.GetString(14);
                             Aluno.Cep = dr.GetString(15);
                             Aluno.Email = dr.GetString(16);
+                            Aluno.nivel = dr.GetInt32(17);
 
                             comando.Dispose();
 
@@ -228,7 +230,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
                             return resultadoOperacao;
                         }
 
-                        query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email FROM alunos";
+                        query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, nivel FROM alunos";
 
                         var lista = (await conexao.QueryAsync<Aluno.DadosAluno>(query, conexao)).ToList();
 
@@ -415,7 +417,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
             }
         }
 
-        public async Task<bool> ChecaLoginAluno(string usuario, string senha)
+        public async Task<bool> ValidaLogin(string usuario, string senha, int nivel)
         {
             using (SqlConnection conexao = new SqlConnection(conn.ConnectionString))
             {
@@ -424,7 +426,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
                     conexao.Open();
                     if (conexao.State == ConnectionState.Open)
                     {
-                        var query = "SELECT senha FROM alunos WHERE email = @usuario";
+                        var query = "SELECT senha FROM alunos WHERE email = @usuario AND nivel = '"+nivel+"'";
 
                         using (var comando = new SqlCommand(query, conexao))
                         {
