@@ -40,13 +40,5 @@ namespace SistemaEscolar.Api.Application.Services
         {
             return _alunoRepository.ExcluiAluno(Id);
         }
-        public Task<byte[]> RelatorioPDF(string id)
-        {
-            return _alunoRepository.RelatorioPDF(id);
-        }
-        public Task<string> GenerateToken(string id)
-        {
-            return _alunoRepository.GenerateToken(id);
-        }
     }
 }
