@@ -1,0 +1,6 @@
+
+
+packages necessários para criar a Api
+
+1 - No caso da criação do projeto Ioc para a classe HealthCheck.cs foi preciso do
+    HealthChecks.UI 6.0.5 pq a Api toda é criada em 6.0

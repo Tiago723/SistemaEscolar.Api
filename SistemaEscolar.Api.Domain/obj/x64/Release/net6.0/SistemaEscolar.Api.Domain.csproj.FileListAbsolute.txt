@@ -1,0 +1,12 @@
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\bin\x64\Release\net6.0\SistemaEscolar.Api.Domain.deps.json
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\bin\x64\Release\net6.0\SistemaEscolar.Api.Domain.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\bin\x64\Release\net6.0\SistemaEscolar.Api.Domain.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.csproj.AssemblyReference.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.AssemblyInfoInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.AssemblyInfo.cs
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.csproj.CoreCompileInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\refint\SistemaEscolar.Api.Domain.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\SistemaEscolar.Api.Domain.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Domain\obj\x64\Release\net6.0\ref\SistemaEscolar.Api.Domain.dll

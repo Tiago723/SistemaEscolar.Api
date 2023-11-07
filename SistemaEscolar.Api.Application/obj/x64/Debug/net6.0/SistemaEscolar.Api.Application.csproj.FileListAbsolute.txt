@@ -1,0 +1,15 @@
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\bin\x64\Debug\net6.0\SistemaEscolar.Api.Application.deps.json
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\bin\x64\Debug\net6.0\SistemaEscolar.Api.Application.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\bin\x64\Debug\net6.0\SistemaEscolar.Api.Application.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\bin\x64\Debug\net6.0\SistemaEscolar.Api.Domain.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\bin\x64\Debug\net6.0\SistemaEscolar.Api.Domain.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.csproj.AssemblyReference.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.AssemblyInfoInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.AssemblyInfo.cs
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.csproj.CoreCompileInputs.cache
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.csproj.CopyComplete
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\refint\SistemaEscolar.Api.Application.dll
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\SistemaEscolar.Api.Application.pdb
+C:\MeusProjetos\Repositorios\Services\SistemaEscolar.Api\SistemaEscolar.Api.Application\obj\x64\Debug\net6.0\ref\SistemaEscolar.Api.Application.dll
