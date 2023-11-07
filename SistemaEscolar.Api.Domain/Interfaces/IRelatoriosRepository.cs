@@ -9,7 +9,7 @@ namespace SistemaEscolar.Api.Domain.Interfaces
 {
     public interface IRelatoriosRepository
     {
-        Task<byte[]> RelatorioPDF(string id);
+        Task<byte[]> RelatorioAluno(string id);
         Task<string> GenerateToken(string id);
     }
 }

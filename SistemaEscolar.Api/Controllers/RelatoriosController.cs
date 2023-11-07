@@ -21,16 +21,16 @@ namespace SistemaEscolar.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Relatorio/{token}")]
-        public async Task<IActionResult> RelatorioPDF(string id)
+        [Route("Aluno/{token}")]
+        public async Task<IActionResult> RelatorioAluno(string id)
         {
             try
             {
-                var PDF = await _relatoriosService.RelatorioPDF(id);
+                var PDF = await _relatoriosService.RelatorioAluno(id);
 
                 if (PDF == null)
                 {
-                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status503ServiceUnavailable) + "Relatorio" + " Erro no Serviço " + PDF, EventLogEntryType.Warning);
+                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status503ServiceUnavailable) + "RelatorioAluno" + " Erro no Serviço " + PDF, EventLogEntryType.Warning);
                     return StatusCode(StatusCodes.Status503ServiceUnavailable, "Erro no Serviço");
                 }
                 else
@@ -49,7 +49,7 @@ namespace SistemaEscolar.Api.Controllers
 
                     string tipoConteudo = "application/pdf";
 
-                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status200OK) + "Relatorio" + " Sucesso " + PDF, EventLogEntryType.Information);
+                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status200OK) + "RelatorioAluno" + " Sucesso " + PDF, EventLogEntryType.Information);
 
                     return File(PDF, tipoConteudo);
                 }

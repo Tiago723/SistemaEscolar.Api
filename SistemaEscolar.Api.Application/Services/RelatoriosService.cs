@@ -20,9 +20,9 @@ namespace SistemaEscolar.Api.Application.Services
             _logger = logger;
             _relatoriosRepository = relatoriosRepository;
         }
-        public Task<byte[]> RelatorioPDF(string id)
+        public Task<byte[]> RelatorioAluno(string id)
         {
-            return _relatoriosRepository.RelatorioPDF(id);
+            return _relatoriosRepository.RelatorioAluno(id);
         }
         public Task<string> GenerateToken(string id)
         {

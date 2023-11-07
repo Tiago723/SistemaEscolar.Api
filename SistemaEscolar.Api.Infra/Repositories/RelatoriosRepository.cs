@@ -24,7 +24,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
             conn = new SqlConnectionDB().ConnectionDB(_connectionDb.BD);
             _config = config;
         }
-        public async Task<byte[]> RelatorioPDF(string Id)
+        public async Task<byte[]> RelatorioAluno(string Id)
         {
             try
             {
