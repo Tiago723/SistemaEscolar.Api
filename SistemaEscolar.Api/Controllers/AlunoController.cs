@@ -38,9 +38,9 @@ namespace SistemaEscolar.Api.Controllers
         }
 
         [HttpGet("ConsultaAluno")]
-        public async Task<IActionResult> ConsultaAluno(int Id)
+        public async Task<IActionResult> ConsultaAluno(string email)
         {
-            var Retorno = await _alunoService.ConsultaAluno(Id);
+            var Retorno = await _alunoService.ConsultaAluno(email);
 
             if (Retorno == null)
             {

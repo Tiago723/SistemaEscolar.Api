@@ -20,7 +20,7 @@ namespace SistemaEscolar.Api.Controllers
             _autenticacaoService = autenticacaoService;
         }
 
-        [HttpGet("ValidaLogin")]
+        [HttpPost("ValidaLogin")]
         public async Task<IActionResult> ValidaLogin(string email, string senha, int nivel)
         {
             var Retorno = await _autenticacaoService.ValidaLogin(email, senha, nivel);

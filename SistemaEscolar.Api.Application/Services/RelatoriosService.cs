@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SistemaEscolar.Api.Domain.Entidades.Aluno;
 
 namespace SistemaEscolar.Api.Application.Services
 {
@@ -20,13 +21,13 @@ namespace SistemaEscolar.Api.Application.Services
             _logger = logger;
             _relatoriosRepository = relatoriosRepository;
         }
-        public Task<byte[]> RelatorioAluno(string id)
+        public Task<byte[]> RelatorioAluno(string token)
         {
-            return _relatoriosRepository.RelatorioAluno(id);
+            return _relatoriosRepository.RelatorioAluno(token);
         }
-        public Task<string> GenerateToken(string id)
+        public Task<string> VerificaAluno(string id)
         {
-            return _relatoriosRepository.GenerateToken(id);
+            return _relatoriosRepository.VerificaAluno(id);
         }
     }
 }

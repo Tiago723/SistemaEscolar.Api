@@ -24,7 +24,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
             conn = new SqlConnectionDB().ConnectionDB(_connectionDb.BD);
             _config = config;
         }
- 
+
         public async Task<ResultadoOperacao<Aluno.CadastraAluno>> CadastraAluno(Aluno.CadastraAluno parametros)
         {
             ResultadoOperacao<Aluno.CadastraAluno> resultadoOperacao = new();
@@ -121,7 +121,7 @@ namespace SistemaEscolar.Api.Infra.Repositories
             }
         }
 
-        public async Task<ResultadoOperacao<Aluno.DadosAluno>> ConsultaAluno(int Id)
+        public async Task<ResultadoOperacao<Aluno.DadosAluno>> ConsultaAluno(string email)
         {
             ResultadoOperacao<Aluno.DadosAluno> resultadoOperacao = new();
             var Aluno = new Aluno.DadosAluno();
@@ -130,12 +130,12 @@ namespace SistemaEscolar.Api.Infra.Repositories
             {
                 try
                 {
-                    var query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, nivel FROM alunos WHERE cd_aluno = '" + Id + "' AND nivel = 2";
+                    var query = "SELECT cd_aluno, nome_aluno, cpf, tel, genero, estado_civil, nasc, cidade_nasc, estado_nasc, endereco, bairro, cidade, estado, numero, complemento, cep, email, nivel FROM alunos WHERE email = '" + email + "' AND nivel = 1";
                     conexao.Open();
 
                     if (conexao.State == ConnectionState.Open)
                     {
-                        var alunoExistente = await conexao.QueryFirstOrDefaultAsync<Aluno.DadosAluno>("SELECT * FROM alunos WHERE cd_aluno = @cd_aluno", new { cd_aluno = Id });
+                        var alunoExistente = await conexao.QueryFirstOrDefaultAsync<Aluno.DadosAluno>("SELECT * FROM alunos WHERE email = @email", new { email = email });
 
                         if (alunoExistente == null)
                         {

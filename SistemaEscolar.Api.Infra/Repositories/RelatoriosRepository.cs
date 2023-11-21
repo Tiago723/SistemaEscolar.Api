@@ -24,10 +24,14 @@ namespace SistemaEscolar.Api.Infra.Repositories
             conn = new SqlConnectionDB().ConnectionDB(_connectionDb.BD);
             _config = config;
         }
-        public async Task<byte[]> RelatorioAluno(string Id)
+       
+        public async Task<byte[]> RelatorioAluno(string token)
         {
             try
             {
+                // DESCRIPTOGRAFA O TOKEN PARA USAR O ID NO REPORT SERVICE
+                string id = Descriptografar(token);
+
                 Aluno.CredenciaisReportService credenciais = new Aluno.CredenciaisReportService();
 
                 HttpClientHandler Autenticacao = new HttpClientHandler();
@@ -35,10 +39,10 @@ namespace SistemaEscolar.Api.Infra.Repositories
 
                 using (HttpClient client = new HttpClient(Autenticacao))
                 {
-                    string servidor = "http://localhost/";
+                    string servidor = "http://gw000552/";
                     string nomeRelatorio = "Report1";
 
-                    string url = $"{servidor}ReportServer/Pages/ReportViewer.aspx?%2fRelatorio1%2f{nomeRelatorio}&rs:Format=PDF&id={Id}";
+                    string url = $"{servidor}ReportServer/Pages/ReportViewer.aspx?%2fSistemaRelatorioAluno%2f{nomeRelatorio}&rs:Format=PDF&cd_aluno={id}";
 
                     HttpResponseMessage response = await client.GetAsync(url);
 
@@ -54,44 +58,93 @@ namespace SistemaEscolar.Api.Infra.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return null;
+                throw;
             }
         }
 
-        public async Task<string> GenerateToken(string id)
+        public string Criptografar(string id)
         {
-            // Gere uma chave secreta de 32 bytes (256 bits)
-            string chaveSecreta = GenerateRandomKey(32);
+            string encryptionKey = "edeefrf15151511d";
 
-            using (HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(chaveSecreta)))
+            using (Aes aesAlg = Aes.Create())
             {
-                // Converte o ID em bytes
-                byte[] idBytes = Encoding.UTF8.GetBytes(id);
+                aesAlg.Key = Encoding.UTF8.GetBytes(encryptionKey);
+                aesAlg.IV = new byte[16]; 
 
-                // ComputeHash irá gerar um hash do ID
-                byte[] hashBytes = hmac.ComputeHash(idBytes);
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
-                // Converte o hash em uma representação de string segura
-                string autentication = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            swEncrypt.Write(id);
+                        }
+                    }
 
-                return autentication;
+                    return Convert.ToBase64String(ms.ToArray());
+                }
             }
         }
 
-        public string GenerateRandomKey(int length)
+        public string Descriptografar(string encryptedId)
         {
-            using (RNGCryptoServiceProvider rngCrypto = new RNGCryptoServiceProvider())
+            string encryptionKey = "edeefrf15151511d";
+
+            using (Aes aesAlg = Aes.Create())
             {
-                // Cria um array de bytes com o comprimento especificado pela variável 'length'
-                byte[] keyBytes = new byte[length];
+                aesAlg.Key = Encoding.UTF8.GetBytes(encryptionKey);
+                aesAlg.IV = new byte[16]; 
 
-                // Gera bytes seguros usando o RNGCryptoServiceProvider e armazena no array keyBytes
-                rngCrypto.GetBytes(keyBytes);
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
-                // Converte os bytes aleatórios em string hexadecimal e remove os hifens e gera uma string de chave aleatória hexadecimal
-                return BitConverter.ToString(keyBytes).Replace("-", "").ToLower();
+                using (MemoryStream ms = new MemoryStream(Convert.FromBase64String(encryptedId)))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+                            return srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
+
+        public async Task<string> VerificaAluno(string id)
+        {
+            using (SqlConnection conexao = new SqlConnection(conn.ConnectionString))
+            {
+                try
+                {
+                    var query = "SELECT cd_aluno FROM alunos WHERE cd_aluno = '" + id + "'";
+                    conexao.Open();
+
+                    SqlCommand comando = new SqlCommand(query, conexao);
+                    SqlDataReader reader = comando.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        string token = Criptografar(id);
+
+                        return token;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
             }
         }
     }

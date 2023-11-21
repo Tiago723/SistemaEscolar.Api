@@ -1,0 +1,10 @@
+
+http://localhost/SistemaEscolar.Api/Api/Relatorios/Aluno?token=R9Udaiy8uRN%2BfK4yU%2BbWvQ%3D%3D
+
+//Token de aluno que existe
+R9Udaiy8uRN+fK4yU+bWvQ==
+
+//Token aleatório de teste
+5TrDBcfT/zo1ia0UL2PAIg==
+
+

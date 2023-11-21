@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.WebEncoders.Testing;
 using SistemaEscolar.Api.Application.Interfaces;
 using SistemaEscolar.Api.Domain.Entidades;
 using System.Diagnostics;
+using System.Net;
 
 namespace SistemaEscolar.Api.Controllers
 {
@@ -21,52 +23,53 @@ namespace SistemaEscolar.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Aluno/{token}")]
-        public async Task<IActionResult> RelatorioAluno(string id)
+        [Route("GeraTokenAluno")]
+        public async Task<IActionResult> GeraTokenAluno(string id)
         {
-            try
+            var token = await _relatoriosService.VerificaAluno(id);
+
+            if (token != null)
             {
-                var PDF = await _relatoriosService.RelatorioAluno(id);
-
-                if (PDF == null)
-                {
-                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status503ServiceUnavailable) + "RelatorioAluno" + " Erro no Serviço " + PDF, EventLogEntryType.Warning);
-                    return StatusCode(StatusCodes.Status503ServiceUnavailable, "Erro no Serviço");
-                }
-                else
-                {
-                    //Obtém a data e hora atual
-                    DateTime dateTime = DateTime.Now;
-
-                    // Obtém somente a data
-                    string dt = dateTime.ToShortDateString();
-
-                    // Atribui a data como parte do nome do arquivo para download
-                    string ArquivoPDF = "Relatório_" + dt.ToString() + ".pdf";
-
-                    // Configura o cabeçalho de resposta para abrir o PDF no navegador
-                    Response.Headers.Add("Content-Disposition", $"inline; filename=\"{ArquivoPDF}\"");
-
-                    string tipoConteudo = "application/pdf";
-
-                    EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status200OK) + "RelatorioAluno" + " Sucesso " + PDF, EventLogEntryType.Information);
-
-                    return File(PDF, tipoConteudo);
-                }
+                EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status200OK) + "GeraTokenAluno" + " Sucesso " + token, EventLogEntryType.Information);
+                return Ok(token);
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro no servidor");
+                EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status503ServiceUnavailable) + "GeraTokenAluno" + "Aluno não cadastrado" + token, EventLogEntryType.Warning);
+                return StatusCode(StatusCodes.Status404NotFound, "Aluno não cadastrado");
             }
         }
 
         [HttpGet]
-        [Route("Token")]
-        public async Task<string> GenerateToken(string id)
+        [Route("Aluno/")]
+        public async Task<IActionResult> RelatorioAluno(string token)
         {
-            var token = await _relatoriosService.GenerateToken(id);
+            var RetornoPDF = await _relatoriosService.RelatorioAluno(token);
 
-            return token;
+            if (RetornoPDF == null)
+            {
+                EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status503ServiceUnavailable) + "RelatorioAluno" + "Erro no serviço" + RetornoPDF, EventLogEntryType.Warning);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, "Erro no serviço");
+            }
+            else
+            {
+                //Obtém a data e hora atual
+                DateTime dateTime = DateTime.Now;
+
+                // Obtém somente a data
+                string dt = dateTime.ToShortDateString();
+
+                // Atribui a data como parte do nome do arquivo para download
+                string ArquivoPDF = "RelatórioAluno_" + dt.ToString() + ".pdf";
+
+                // Configura o cabeçalho de resposta para abrir o PDF no navegador
+                Response.Headers.Add("Content-Disposition", $"inline; filename=\"{ArquivoPDF}\"");
+
+                string tipoConteudo = "application/pdf";
+
+                EventLog.WriteEntry("SistemaEscolar.Api", Convert.ToString(StatusCodes.Status200OK) + "RelatorioAluno" + " Sucesso " + RetornoPDF, EventLogEntryType.Information);
+                return File(RetornoPDF, tipoConteudo);
+            }
         }
     }
 }

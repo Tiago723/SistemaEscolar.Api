@@ -24,9 +24,9 @@ namespace SistemaEscolar.Api.Application.Services
         {
             return _alunoRepository.CadastraAluno(parametros);
         }
-        public Task<ResultadoOperacao<Aluno.DadosAluno>> ConsultaAluno(int Id)
+        public Task<ResultadoOperacao<Aluno.DadosAluno>> ConsultaAluno(string email)
         {
-            return _alunoRepository.ConsultaAluno(Id);
+            return _alunoRepository.ConsultaAluno(email);
         }
         public Task<ResultadoOperacao<List<Aluno.DadosAluno>>> ListaAlunos()
         {
